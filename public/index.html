@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P2P File Sharing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 P2P File Sharing</h1>
+            <p>Share files directly between devices</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Connection Status -->
+            <div class="status-section">
+                <div class="status-indicator" id="statusIndicator">
+                    <span class="status-dot"></span>
+                    <span class="status-text" id="statusText">Connecting...</span>
+                </div>
+            </div>
+
+            <!-- Mode Selection -->
+            <div class="mode-section" id="modeSection">
+                <h2>Choose your action:</h2>
+                <div class="mode-buttons">
+                    <button class="mode-btn" id="sendBtn">
+                        <span class="icon">📤</span>
+                        <span>Send File</span>
+                    </button>
+                    <button class="mode-btn" id="receiveBtn">
+                        <span class="icon">📥</span>
+                        <span>Receive File</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Send Section -->
+            <div class="section hidden" id="sendSection">
+                <h2>Send File</h2>
+                <div class="file-input-section">
+                    <input type="file" id="fileInput" accept="*/*">
+                    <button class="btn btn-primary" id="createRoomBtn">Create Room</button>
+                </div>
+                
+                <div class="room-info hidden" id="roomInfo">
+                    <div class="room-code-section">
+                        <h3>Room Code:</h3>
+                        <div class="room-code" id="roomCode"></div>
+                        <button class="btn btn-secondary" id="copyCodeBtn">Copy Code</button>
+                    </div>
+                    
+                    <div class="qr-section">
+                        <h3>QR Code:</h3>
+                        <div class="qr-code" id="qrCode"></div>
+                    </div>
+                </div>
+                
+                <div class="file-info hidden" id="fileInfo">
+                    <div class="file-details">
+                        <span class="file-icon">📄</span>
+                        <div class="file-meta">
+                            <div class="file-name" id="fileName"></div>
+                            <div class="file-size" id="fileSize"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Receive Section -->
+            <div class="section hidden" id="receiveSection">
+                <h2>Receive File</h2>
+                <div class="join-room-section">
+                    <input type="text" id="roomCodeInput" placeholder="Enter room code" maxlength="6">
+                    <button class="btn btn-primary" id="joinRoomBtn">Join Room</button>
+                </div>
+            </div>
+
+            <!-- Transfer Section -->
+            <div class="section hidden" id="transferSection">
+                <h2>File Transfer</h2>
+                <div class="transfer-info">
+                    <div class="file-details">
+                        <span class="file-icon">📄</span>
+                        <div class="file-meta">
+                            <div class="file-name" id="transferFileName"></div>
+                            <div class="file-size" id="transferFileSize"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-section">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <div class="progress-text" id="progressText">0%</div>
+                    </div>
+                    
+                    <div class="transfer-actions hidden" id="transferActions">
+                        <button class="btn btn-success" id="acceptBtn">Accept</button>
+                        <button class="btn btn-danger" id="rejectBtn">Reject</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back Button -->
+            <button class="btn btn-secondary hidden" id="backBtn">← Back</button>
+        </div>
+
+        <footer>
+            <p>Secure P2P file sharing - No files stored on server</p>
+        </footer>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
